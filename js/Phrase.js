@@ -1,15 +1,13 @@
-/* Treehouse FSJS Techdegree
- * Project 4 - OOP Game App
- * Phrase.js */
 class Phrase {
   constructor(phrase) {
+    //Receives a phrase parameter and converts it to lower case letters.
     this.phrase = phrase.toLowerCase();
   }
 
   addPhraseToDisplay() {
+    //Select the <ul> to append the <li>'s
     const divPhrase = document.querySelector("#phrase ul");
-    // divPhrase.id = "phrase";
-    // divPhrase.className = "section";
+    //Get the phrase and split each letter into individial <li>'s
     const word = this.phrase
       .split("")
       .map(letter =>
@@ -17,10 +15,15 @@ class Phrase {
           ? `<li class="space"> </li>`
           : `<li class="hide letter ${letter}">${letter}</li>`
       );
+    //combine all <li> inside the array into a single string and append to <ul>
     divPhrase.innerHTML = `${word.join("")}`;
   }
   checkLetter(e) {
+    //Passed event from letter click handle inside app.js -> handleInteraction inside Game.js
+
+    //get the letter from the target
     const guess = e.target.innerHTML;
+    //search if guess is found inside this.phrase if found run showMatchedLetter() and return true
     const correctGuess = this.phrase.split("").find(word => {
       if (word === guess) {
         this.showMatchedLetter(word);
@@ -31,6 +34,7 @@ class Phrase {
     return correctGuess;
   }
   showMatchedLetter(word) {
+    //if match found select the class by the letter's and add the class of 'show'
     const matchLetter = document.querySelectorAll(`.${word}`);
     matchLetter.forEach(letter => (letter.className = "show"));
   }
