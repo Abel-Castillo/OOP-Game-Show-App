@@ -45,14 +45,14 @@ class Game {
     const randomNumber = Math.floor(Math.random() * this.phrases.length);
     return this.phrases[randomNumber].phrase;
   }
-  handleInteraction(e) {
+  handleInteraction(letter) {
     //pass the event from letter clicked inside app.js
-    const checkLetter = newPhrase.checkLetter(e);
+    const checkLetter = newPhrase.checkLetter(letter);
     //Once a letter has picked disabled it to prevent the click handler
-    e.target.setAttribute("disabled", "disabled");
+    letter.setAttribute("disabled", "disabled");
     //if the return value from newPhrase.checkLetter(e) is false give the target a class of 'wrong' and remove a life
     if (!checkLetter) {
-      e.target.className = "wrong";
+      letter.className = "wrong";
       this.removeLife();
     }
     //if the return value of newPhrase.checkLetter(e) is true check for win

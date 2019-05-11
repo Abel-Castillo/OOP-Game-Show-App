@@ -18,16 +18,16 @@ class Phrase {
     //combine all <li> inside the array into a single string and append to <ul>
     divPhrase.innerHTML = `${word.join("")}`;
   }
-  checkLetter(e) {
+  checkLetter(letter) {
     //Passed event from letter click handle inside app.js -> handleInteraction inside Game.js
 
     //get the letter from the target
-    const guess = e.target.innerHTML;
+    const guess = letter.textContent;
     //search if guess is found inside this.phrase if found run showMatchedLetter() and return true
     const correctGuess = this.phrase.split("").find(word => {
       if (word === guess) {
         this.showMatchedLetter(word);
-        e.target.className = "chosen";
+        letter.className = "chosen";
         return true;
       }
     });
