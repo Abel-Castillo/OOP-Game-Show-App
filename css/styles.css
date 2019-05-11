@@ -137,14 +137,14 @@ button {
 }
 
 .wrong {
-  background: #f7a964;
+  background: red;
   color: #ffffff;
 }
 
 .btn__reset {
   padding: 16px;
   margin: 50px auto;
-  background: #f7a964;
+  background: red;
   border-radius: 5px;
   font-size: 20px;
   cursor: pointer;
